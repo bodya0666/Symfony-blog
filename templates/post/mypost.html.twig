@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello!{% endblock %}
+{% block stylesheets %}
+{{ parent() }}
+<style type="text/css">
+    .intro-header {
+        height:60px;
+    }
+</style>
+{% endblock %}
+{% block body %}
+<!-- Main Content -->
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        {% for post in posts %}
+            <div class="post-preview">
+                <a href="{{ path('post_show', {'id': post.id}) }}">
+                    <h2 class="post-title">
+                        {{ post.title }}
+                    </h2>
+                </a>
+                <p class="post-meta">Posted by <a href="#">{{ post.user.email }}</a> on {{ post.date ? post.date|date('Y-m-d H:i:s') : '' }}</p>
+            </div>
+            
+           <div style="display:flex;"> {{ include('post/_delete_form.html.twig') }}
+            <a href="{{ path('post_edit', {'id': post.id}) }}"><button style="margin-left:10px;" class="btn">edit</button></a></div>
+            <hr>
+            {% else %}
+            <tr>
+            <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        <ul class="pager">
+            
+        </ul>
+        </div>
+    </div>
+</div>
+
+<hr>
+
+{% endblock %}

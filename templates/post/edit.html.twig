@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Post{% endblock %}
+{% block stylesheets %}
+{{ parent() }}
+<style type="text/css">
+	.intro-header {
+		height:60px;
+	}
+</style>
+{% endblock %}
+{% block body %}
+    <h1>Edit Post</h1>
+
+    {{ include('post/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('main') }}">back to list</a>
+
+    {{ include('post/_delete_form.html.twig') }}
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Post{% endblock %}
+{% block stylesheets %}
+{{ parent() }}
+<style type="text/css">
+	.intro-header {
+		height:60px;
+	}
+</style>
+{% endblock %}
+{% block body %}
+    <h1>Create new Post</h1>
+    {{ include('post/_form.html.twig') }}
+{% endblock %}

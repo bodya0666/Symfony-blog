@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Post index{% endblock %}
+{% block header %}
+       <header class="intro-header" style="background-image: url('/media/img/home-bg.jpg')">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="site-heading">
+                        <h1>Symfony Blog</h1>
+                        <hr class="small">
+                        <span class="subheading">Simple blog on symfony</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+{% endblock %}
+{% block body %}
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            {% for post in posts %}
+                <div class="post-preview">
+                    <a href="{{ path('post_show', {'id': post.id}) }}">
+                        <h2 class="post-title">
+                            {{ post.title }}
+                        </h2>
+                    </a>
+                    <p class="post-meta">Posted by <a href="#">{{ post.user.email }}</a> on {{ post.date ? post.date|date('Y-m-d H:i:s') : '' }}</p>
+                </div>
+                <hr>
+                {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+            {% endfor %}
+                <ul class="pager">
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <hr>
+
+{% endblock %}

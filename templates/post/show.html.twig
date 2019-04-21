@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Post{% endblock %}
+{% block header %}
+<header class="intro-header" style="background-image: url('/media/img/home-bg.jpg')">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="post-heading">
+                        <h1>{{ post.title }}</h1>
+                        <span class="meta">Posted by <a href="#">Start Bootstrap</a> on {{ post.date ? post.date|date('Y-m-d H:i:s') : '' }}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+{% endblock %}
+{% block body %}
+
+
+    <!-- Post Content -->
+    <article>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <p>{{ post.text }}</p>
+                </div>
+            </div>
+        </div>
+    </article>
+
+    <hr>
+{% endblock %}
